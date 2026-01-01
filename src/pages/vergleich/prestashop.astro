@@ -1,0 +1,98 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTA from '../../components/CTA.astro';
+
+const comparisonRows = [
+  { feature: "Software-Kosten", kiss: "Pauschale", other: "Kostenlos + Module" },
+  { feature: "Hosting", kiss: "Inklusive", other: "Selbst organisieren" },
+  { feature: "Einrichtungsaufwand", kiss: "Gering", other: "Hoch" },
+  { feature: "Technisches Wissen", kiss: "Nicht nötig", other: "Mittel bis hoch" },
+  { feature: "Persönlicher Support", kiss: true, other: false },
+  { feature: "Modul-Kosten", kiss: "Keine", other: "50–300€ pro Modul" },
+  { feature: "Multi-Shop", kiss: false, other: true },
+  { feature: "B2B-Funktionen", kiss: "Basis", other: "Umfangreich" },
+  { feature: "Skalierbarkeit", kiss: "Begrenzt", other: "Hoch" },
+];
+---
+
+<Layout 
+  title="KISS.Shop vs. PrestaShop – Ehrlicher Vergleich"
+  description="PrestaShop ist mächtig, aber komplex. Wann ist eine einfache Alternative wie KISS.Shop sinnvoller?"
+>
+  <Hero 
+    label="Vergleich"
+    title="KISS.Shop vs. PrestaShop"
+    subtitle="Enterprise-Features vs. fokussierte Einfachheit."
+  />
+
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Start</a>
+        <span>/</span>
+        <a href="/vergleich/">Vergleich</a>
+        <span>/</span>
+        PrestaShop
+      </nav>
+
+      <div class="content prose">
+        <h2>PrestaShop im Überblick</h2>
+        <p>
+          PrestaShop ist eine Open-Source-E-Commerce-Plattform aus Frankreich. 
+          Über 300.000 Shops nutzen das System. Stärken: B2B-Funktionen, Multi-Shop, große Community.
+        </p>
+
+        <h3>Wann PrestaShop passt</h3>
+        <ul>
+          <li>Sie brauchen B2B-Funktionen (Staffelpreise, Kundengruppen)</li>
+          <li>Sie betreiben mehrere Shops</li>
+          <li>Sie haben technische Ressourcen</li>
+          <li>Sie wollen eine etablierte Open-Source-Lösung</li>
+        </ul>
+
+        <h3>Wann KISS.Shop passt</h3>
+        <ul>
+          <li>Sie brauchen keine Enterprise-Features</li>
+          <li>Sie wollen keine Module kaufen</li>
+          <li>Sie haben keine IT-Abteilung</li>
+          <li>Sie suchen einen persönlichen Ansprechpartner</li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top: var(--space-xl);">Direktvergleich</h2>
+      <ComparisonTable otherName="PrestaShop" rows={comparisonRows} />
+
+      <div class="content prose" style="margin-top: var(--space-xl);">
+        <h2>Die Modul-Falle</h2>
+        <p>
+          PrestaShop ist kostenlos, aber fast jede nützliche Funktion erfordert ein kostenpflichtiges Modul:
+        </p>
+        <ul>
+          <li>Erweiterte SEO: 80–150€</li>
+          <li>One-Page-Checkout: 70–120€</li>
+          <li>Erweiterte Suche: 100–200€</li>
+          <li>E-Mail-Marketing-Integration: 50–100€</li>
+        </ul>
+        <p>
+          Dazu kommen jährliche Update-Kosten und das Risiko, dass Module nach einem Update nicht mehr funktionieren.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          PrestaShop ist eine leistungsstarke Plattform für Unternehmen mit komplexen Anforderungen. 
+          Für kleine Shops ist der Einrichtungs- und Wartungsaufwand unverhältnismäßig hoch. 
+          KISS.Shop bietet alles, was ein kleiner Shop braucht – ohne Modul-Kosten.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA 
+    title="Weniger Komplexität gewünscht?"
+    text="KISS.Shop: Ein Shop, der funktioniert. Ohne Module."
+    buttonText="Gespräch vereinbaren"
+    buttonHref="mailto:david@websystems.io?subject=KISS.Shop%20vs.%20PrestaShop"
+  />
+</Layout>

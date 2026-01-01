@@ -1,0 +1,53 @@
+---
+interface ComparisonRow {
+  feature: string;
+  kiss: string | boolean;
+  other: string | boolean;
+}
+
+interface Props {
+  otherName: string;
+  rows: ComparisonRow[];
+}
+
+const { otherName, rows } = Astro.props;
+
+function formatValue(value: string | boolean): string {
+  if (typeof value === 'boolean') {
+    return value ? '✓' : '–';
+  }
+  return value;
+}
+
+function getClass(value: string | boolean): string {
+  if (typeof value === 'boolean') {
+    return value ? 'yes' : 'no';
+  }
+  return '';
+}
+---
+
+<div class="comparison-table-wrapper">
+  <table class="comparison-table">
+    <thead>
+      <tr>
+        <th>Merkmal</th>
+        <th class="highlight">KISS.Shop</th>
+        <th>{otherName}</th>
+      </tr>
+    </thead>
+    <tbody>
+      {rows.map((row) => (
+        <tr>
+          <td>{row.feature}</td>
+          <td class:list={['highlight', getClass(row.kiss)]}>
+            {formatValue(row.kiss)}
+          </td>
+          <td class={getClass(row.other)}>
+            {formatValue(row.other)}
+          </td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</div>

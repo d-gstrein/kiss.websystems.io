@@ -1,0 +1,144 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import CTA from '../../components/CTA.astro';
+---
+
+<Layout 
+  title="KISS.Shop im Vergleich – Shopsysteme ehrlich verglichen"
+  description="Wie unterscheidet sich KISS.Shop von Shopify, WooCommerce, PrestaShop und Shopware? Ein sachlicher Vergleich ohne Marketing-Sprache."
+>
+  <Hero 
+    label="Vergleich"
+    title="KISS.Shop vs. andere Shopsysteme"
+    subtitle="Ein sachlicher Vergleich. Ohne Marketing-Sprache, ohne Superlative."
+  />
+
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Start</a>
+        <span>/</span>
+        Vergleich
+      </nav>
+
+      <div class="comparison-intro">
+        <p>
+          KISS.Shop ist keine Konkurrenz zu etablierten Shopsystemen. 
+          Es ist eine Alternative für eine spezifische Zielgruppe: 
+          Kleine Betriebe, die einen einfachen Shop wollen und sich nicht mit Technik beschäftigen möchten.
+        </p>
+        <p>
+          Die folgenden Vergleiche zeigen, wann KISS.Shop passt – und wann nicht.
+        </p>
+      </div>
+
+      <h2>Übersicht</h2>
+      <table class="comparison-table">
+        <thead>
+          <tr>
+            <th>Kriterium</th>
+            <th class="highlight">KISS.Shop</th>
+            <th>Shopify</th>
+            <th>WooCommerce</th>
+            <th>PrestaShop</th>
+            <th>Shopware</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Zielgruppe</td>
+            <td class="highlight">Kleine Betriebe</td>
+            <td>Alle Größen</td>
+            <td>Alle Größen</td>
+            <td>KMU</td>
+            <td>Mittelstand</td>
+          </tr>
+          <tr>
+            <td>Technisches Wissen nötig</td>
+            <td class="highlight yes">Nein</td>
+            <td>Wenig</td>
+            <td>Mittel</td>
+            <td>Mittel</td>
+            <td>Hoch</td>
+          </tr>
+          <tr>
+            <td>Selbst-Hosting</td>
+            <td class="highlight no">Nein (betreut)</td>
+            <td>Nein (SaaS)</td>
+            <td>Ja</td>
+            <td>Ja</td>
+            <td>Ja/Nein</td>
+          </tr>
+          <tr>
+            <td>Plugin-System</td>
+            <td class="highlight no">Nein</td>
+            <td>Ja</td>
+            <td>Ja</td>
+            <td>Ja</td>
+            <td>Ja</td>
+          </tr>
+          <tr>
+            <td>Persönliche Betreuung</td>
+            <td class="highlight yes">Inklusive</td>
+            <td>Kostenpflichtig</td>
+            <td>Agentur nötig</td>
+            <td>Agentur nötig</td>
+            <td>Agentur nötig</td>
+          </tr>
+          <tr>
+            <td>Komplexität</td>
+            <td class="highlight">Minimal</td>
+            <td>Mittel</td>
+            <td>Hoch</td>
+            <td>Hoch</td>
+            <td>Sehr hoch</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2 style="margin-top: var(--space-xl);">Detailvergleiche</h2>
+      <div class="grid grid--2">
+        <a href="/vergleich/shopify/" class="card">
+          <h3 class="card__title">KISS.Shop vs. Shopify</h3>
+          <p class="card__text">SaaS vs. betreute Lösung. Wann lohnt sich was?</p>
+        </a>
+        <a href="/vergleich/woocommerce/" class="card">
+          <h3 class="card__title">KISS.Shop vs. WooCommerce</h3>
+          <p class="card__text">WordPress-Plugin vs. eigenständiges System.</p>
+        </a>
+        <a href="/vergleich/prestashop/" class="card">
+          <h3 class="card__title">KISS.Shop vs. PrestaShop</h3>
+          <p class="card__text">Open Source vs. betreute Einfachheit.</p>
+        </a>
+        <a href="/vergleich/shopware/" class="card">
+          <h3 class="card__title">KISS.Shop vs. Shopware</h3>
+          <p class="card__text">Enterprise-Lösung vs. schlanke Alternative.</p>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <CTA 
+    title="Noch Fragen?"
+    text="Ich berate Sie gerne, welches System für Ihre Anforderungen passt."
+    buttonText="Beratung anfragen"
+    buttonHref="mailto:david@websystems.io?subject=Shopsystem-Beratung"
+  />
+</Layout>
+
+<style>
+  .card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  
+  .card:hover {
+    border-color: var(--color-accent);
+  }
+  
+  .card:hover .card__title {
+    color: var(--color-accent);
+  }
+</style>

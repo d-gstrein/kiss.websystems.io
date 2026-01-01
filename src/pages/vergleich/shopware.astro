@@ -1,0 +1,102 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTA from '../../components/CTA.astro';
+
+const comparisonRows = [
+  { feature: "Zielgruppe", kiss: "Kleine Betriebe", other: "Mittelstand/Enterprise" },
+  { feature: "Einrichtungskosten", kiss: "Gering", other: "5.000–50.000€+" },
+  { feature: "Technisches Wissen", kiss: "Nicht nötig", other: "Sehr hoch" },
+  { feature: "Agentur nötig", kiss: false, other: true },
+  { feature: "Persönlicher Support", kiss: true, other: "Via Agentur" },
+  { feature: "ERP-Integration", kiss: "Begrenzt", other: "Umfangreich" },
+  { feature: "Content-Management", kiss: "Basis", other: "Umfangreich" },
+  { feature: "B2B-Suite", kiss: false, other: true },
+  { feature: "Performance", kiss: "Schnell", other: "Ressourcenintensiv" },
+];
+---
+
+<Layout 
+  title="KISS.Shop vs. Shopware – Ehrlicher Vergleich"
+  description="Shopware ist für den Mittelstand gemacht. Für kleine Shops ist es überdimensioniert. KISS.Shop als Alternative."
+>
+  <Hero 
+    label="Vergleich"
+    title="KISS.Shop vs. Shopware"
+    subtitle="Enterprise-System vs. schlanke Lösung."
+  />
+
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Start</a>
+        <span>/</span>
+        <a href="/vergleich/">Vergleich</a>
+        <span>/</span>
+        Shopware
+      </nav>
+
+      <div class="content prose">
+        <h2>Shopware im Überblick</h2>
+        <p>
+          Shopware ist ein deutsches E-Commerce-System, das sich an mittelständische und größere Unternehmen richtet. 
+          Bekannt für umfangreiche B2B-Funktionen, Content-Management und ERP-Integrationen.
+        </p>
+
+        <h3>Wann Shopware passt</h3>
+        <ul>
+          <li>Sie haben 500+ Produkte</li>
+          <li>Sie brauchen komplexe B2B-Funktionen</li>
+          <li>Sie planen ERP-Integration (SAP, etc.)</li>
+          <li>Sie haben Budget für Agentur und Entwicklung</li>
+        </ul>
+
+        <h3>Wann KISS.Shop passt</h3>
+        <ul>
+          <li>Sie haben unter 500 Produkte</li>
+          <li>Sie brauchen keine Enterprise-Features</li>
+          <li>Sie haben kein Budget für Agenturen</li>
+          <li>Sie wollen schnell starten</li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top: var(--space-xl);">Direktvergleich</h2>
+      <ComparisonTable otherName="Shopware" rows={comparisonRows} />
+
+      <div class="content prose" style="margin-top: var(--space-xl);">
+        <h2>Der Elefant im Raum: Kosten</h2>
+        <p>
+          Shopware 6 gibt es als Community Edition kostenlos. 
+          Ein produktiver Shop braucht aber meist die kostenpflichtige Version oder zahlreiche Plugins.
+        </p>
+        <p>
+          Realistische Kosten für einen mittelgroßen Shopware-Shop:
+        </p>
+        <ul>
+          <li>Einrichtung durch Agentur: 10.000–30.000€</li>
+          <li>Theme-Anpassung: 3.000–10.000€</li>
+          <li>Monatliche Wartung: 500–2.000€</li>
+          <li>Hosting (performant): 100–500€/Monat</li>
+        </ul>
+        <p>
+          Für einen Shop mit 50 Produkten ist das unverhältnismäßig.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          Shopware ist eine exzellente Wahl für Unternehmen, die in E-Commerce investieren wollen und können. 
+          Für kleine Betriebe ist es schlicht zu viel – zu komplex, zu teuer, zu aufwändig. 
+          KISS.Shop bietet das, was kleine Shops wirklich brauchen.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA 
+    title="Klein starten, groß denken?"
+    text="Fangen Sie einfach an. Mit KISS.Shop."
+    buttonText="Anfrage senden"
+    buttonHref="mailto:david@websystems.io?subject=KISS.Shop%20vs.%20Shopware"
+  />
+</Layout>

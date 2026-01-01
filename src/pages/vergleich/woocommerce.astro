@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTA from '../../components/CTA.astro';
+
+const comparisonRows = [
+  { feature: "Software-Kosten", kiss: "Pauschale", other: "Kostenlos + Plugins" },
+  { feature: "Hosting", kiss: "Inklusive", other: "Selbst organisieren" },
+  { feature: "Updates & Sicherheit", kiss: "Erledigt", other: "Selbst verantwortlich" },
+  { feature: "Technisches Wissen", kiss: "Nicht nötig", other: "Mittel bis hoch" },
+  { feature: "Plugin-Konflikte", kiss: "Keine", other: "Häufig" },
+  { feature: "Persönlicher Support", kiss: true, other: false },
+  { feature: "Anpassbarkeit", kiss: "Begrenzt", other: "Unbegrenzt" },
+  { feature: "Community & Ressourcen", kiss: "Klein", other: "Sehr groß" },
+  { feature: "Datenhoheit", kiss: "Vollständig", other: "Vollständig" },
+];
+---
+
+<Layout 
+  title="KISS.Shop vs. WooCommerce – Ehrlicher Vergleich"
+  description="WooCommerce ist kostenlos, aber nicht umsonst. Wann lohnt sich eine betreute Alternative wie KISS.Shop?"
+>
+  <Hero 
+    label="Vergleich"
+    title="KISS.Shop vs. WooCommerce"
+    subtitle="Open Source vs. betreute Einfachheit."
+  />
+
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Start</a>
+        <span>/</span>
+        <a href="/vergleich/">Vergleich</a>
+        <span>/</span>
+        WooCommerce
+      </nav>
+
+      <div class="content prose">
+        <h2>WooCommerce im Überblick</h2>
+        <p>
+          WooCommerce ist ein WordPress-Plugin. Über 5 Millionen aktive Installationen machen es zum meistgenutzten Shopsystem weltweit. 
+          Die Software ist kostenlos. Die Kosten entstehen durch Hosting, Plugins und Wartung.
+        </p>
+
+        <h3>Wann WooCommerce passt</h3>
+        <ul>
+          <li>Sie haben bereits eine WordPress-Website</li>
+          <li>Sie haben technisches Know-how oder eine Agentur</li>
+          <li>Sie brauchen maximale Anpassbarkeit</li>
+          <li>Sie wollen volle Kontrolle über den Code</li>
+        </ul>
+
+        <h3>Wann KISS.Shop passt</h3>
+        <ul>
+          <li>Sie wollen sich nicht mit Updates beschäftigen</li>
+          <li>Sie haben keine Zeit für Plugin-Konflikte</li>
+          <li>Sie brauchen einen verlässlichen Ansprechpartner</li>
+          <li>Sie wollen keine Agentur bezahlen</li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top: var(--space-xl);">Direktvergleich</h2>
+      <ComparisonTable otherName="WooCommerce" rows={comparisonRows} />
+
+      <div class="content prose" style="margin-top: var(--space-xl);">
+        <h2>Die versteckten Kosten von „kostenlos"</h2>
+        <p>
+          WooCommerce selbst ist kostenlos. Ein funktionierender Shop braucht aber:
+        </p>
+        <ul>
+          <li>Hosting: 10–50€/Monat für vernünftige Performance</li>
+          <li>Premium-Theme: 50–80€ einmalig</li>
+          <li>Plugins für Versand, Zahlungen, SEO: 100–500€/Jahr</li>
+          <li>SSL-Zertifikat: 0–100€/Jahr</li>
+          <li>Wartung und Updates: Zeit oder Agenturkosten</li>
+        </ul>
+        <p>
+          Dazu kommt das Risiko: Plugin-Konflikte nach Updates, Sicherheitslücken, Performance-Probleme.
+          Wer sich nicht auskennt, zahlt am Ende mehr – in Zeit oder Geld.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          WooCommerce ist hervorragend für alle, die technisch versiert sind oder eine Agentur haben. 
+          Für kleine Betriebe ohne IT-Ressourcen ist der Wartungsaufwand oft zu hoch. 
+          KISS.Shop nimmt Ihnen diese Last ab – gegen eine transparente Pauschale.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA 
+    title="Keine Lust auf Plugin-Chaos?"
+    text="Mit KISS.Shop bekommen Sie einen Shop, der einfach funktioniert."
+    buttonText="Jetzt anfragen"
+    buttonHref="mailto:david@websystems.io?subject=KISS.Shop%20vs.%20WooCommerce"
+  />
+</Layout>

@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Hero from '../../components/Hero.astro';
+import ComparisonTable from '../../components/ComparisonTable.astro';
+import CTA from '../../components/CTA.astro';
+
+const comparisonRows = [
+  { feature: "Monatliche Kosten", kiss: "Pauschale", other: "Ab 36€ + Apps" },
+  { feature: "Transaktionsgebühren", kiss: "Nur Zahlungsanbieter", other: "0,5–2% zusätzlich" },
+  { feature: "Technisches Wissen", kiss: "Nicht nötig", other: "Wenig" },
+  { feature: "Persönlicher Ansprechpartner", kiss: true, other: false },
+  { feature: "Theme-Anpassungen", kiss: "Inklusive", other: "Kostenpflichtig" },
+  { feature: "Plugin/App-System", kiss: false, other: true },
+  { feature: "Internationale Expansion", kiss: "Begrenzt", other: "Umfangreich" },
+  { feature: "Multi-Channel (Amazon, etc.)", kiss: false, other: true },
+  { feature: "Datenhoheit", kiss: "Vollständig", other: "Eingeschränkt" },
+];
+---
+
+<Layout 
+  title="KISS.Shop vs. Shopify – Ehrlicher Vergleich"
+  description="Wann ist KISS.Shop die bessere Wahl gegenüber Shopify? Ein sachlicher Vergleich für kleine Betriebe."
+>
+  <Hero 
+    label="Vergleich"
+    title="KISS.Shop vs. Shopify"
+    subtitle="Zwei unterschiedliche Ansätze. Für unterschiedliche Anforderungen."
+  />
+
+  <section class="section">
+    <div class="container">
+      <nav class="breadcrumb">
+        <a href="/">Start</a>
+        <span>/</span>
+        <a href="/vergleich/">Vergleich</a>
+        <span>/</span>
+        Shopify
+      </nav>
+
+      <div class="content prose">
+        <h2>Shopify im Überblick</h2>
+        <p>
+          Shopify ist eine SaaS-Plattform für E-Commerce. 
+          Über 4 Millionen Shops weltweit nutzen das System. 
+          Die Stärken: Einfacher Einstieg, großes App-Ökosystem, internationale Expansion.
+        </p>
+
+        <h3>Wann Shopify passt</h3>
+        <ul>
+          <li>Sie planen international zu verkaufen</li>
+          <li>Sie brauchen Multi-Channel (Amazon, Instagram, etc.)</li>
+          <li>Sie wollen ein großes App-Ökosystem</li>
+          <li>Sie haben Ressourcen für die App-Verwaltung</li>
+        </ul>
+
+        <h3>Wann KISS.Shop passt</h3>
+        <ul>
+          <li>Sie verkaufen regional (DE/AT/CH/IT)</li>
+          <li>Sie wollen keine monatlichen App-Kosten</li>
+          <li>Sie brauchen einen persönlichen Ansprechpartner</li>
+          <li>Sie wollen sich nicht mit Technik beschäftigen</li>
+        </ul>
+      </div>
+
+      <h2 style="margin-top: var(--space-xl);">Direktvergleich</h2>
+      <ComparisonTable otherName="Shopify" rows={comparisonRows} />
+
+      <div class="content prose" style="margin-top: var(--space-xl);">
+        <h2>Kostenfaktor</h2>
+        <p>
+          Shopify wirbt mit Einstiegspreisen ab 36€/Monat. 
+          In der Praxis kommen schnell 100–300€/Monat zusammen: 
+          Premium-Theme (einmalig 180–350€), Apps für Bewertungen, SEO, E-Mail-Marketing, Versand.
+        </p>
+        <p>
+          Dazu kommen Transaktionsgebühren von 0,5–2% pro Bestellung (zusätzlich zu Stripe/PayPal), 
+          wenn Sie nicht Shopify Payments nutzen.
+        </p>
+        <p>
+          Bei KISS.Shop zahlen Sie eine transparente Pauschale. Alle Funktionen inklusive.
+        </p>
+
+        <h2>Fazit</h2>
+        <p>
+          Shopify ist eine exzellente Plattform für wachsende E-Commerce-Unternehmen. 
+          Für kleine Betriebe mit regionalem Fokus ist es oft überdimensioniert. 
+          Wenn Sie Einfachheit und persönliche Betreuung suchen, ist KISS.Shop die schlankere Alternative.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <CTA 
+    title="Passt KISS.Shop zu Ihnen?"
+    text="Lassen Sie uns darüber sprechen. Unverbindlich."
+    buttonText="Kontakt aufnehmen"
+    buttonHref="mailto:david@websystems.io?subject=KISS.Shop%20vs.%20Shopify"
+  />
+</Layout>
