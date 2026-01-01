@@ -105,11 +105,3 @@ const comparisonRows = [
   { feature: "Boolean-Wert", kiss: true, other: false },
 ];
 ```
-
-## Analytics (optional)
-
-Für Plausible oder Google Analytics: Script im `Layout.astro` im `<head>` einfügen.
-
-## Lizenz
-
-Proprietär – Alle Rechte vorbehalten.
