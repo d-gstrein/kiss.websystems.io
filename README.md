@@ -21,7 +21,7 @@ npm run preview
 
 ## Deployment
 
-Das Deployment erfolgt automatisch via GitHub Actions bei jedem Push auf `main`.
+Das Deployment erfolgt automatisch via GitHub Actions bei jedem Push auf `master`.
 
 ### Erstmaliges Setup
 
@@ -32,7 +32,7 @@ Das Deployment erfolgt automatisch via GitHub Actions bei jedem Push auf `main`.
    git add .
    git commit -m "Initial commit"
    git remote add origin git@github.com:DEIN-USERNAME/kiss-shop-landingpage.git
-   git push -u origin main
+   git push -u origin master
    ```
 3. In den Repository-Settings → Pages:
    - Source: "GitHub Actions" auswählen
