@@ -2,143 +2,145 @@
 import Layout from '../../layouts/Layout.astro';
 import Hero from '../../components/Hero.astro';
 import CTA from '../../components/CTA.astro';
+
+const comparisons = [
+  {
+    href: "/vergleich/shopify/",
+    title: "KISS.Shop vs. Shopify",
+    text: "SaaS vs. betreute Lösung. Wann lohnt sich was?"
+  },
+  {
+    href: "/vergleich/woocommerce/",
+    title: "KISS.Shop vs. WooCommerce",
+    text: "WordPress-Plugin vs. eigenständiges System."
+  },
+  {
+    href: "/vergleich/prestashop/",
+    title: "KISS.Shop vs. PrestaShop",
+    text: "Open Source vs. betreute Einfachheit."
+  },
+  {
+    href: "/vergleich/shopware/",
+    title: "KISS.Shop vs. Shopware",
+    text: "Enterprise-Lösung vs. schlanke Alternative."
+  }
+];
 ---
 
-<Layout 
+<Layout
   title="KISS.Shop im Vergleich – Shopsysteme ehrlich verglichen"
   description="Wie unterscheidet sich KISS.Shop von Shopify, WooCommerce, PrestaShop und Shopware? Ein sachlicher Vergleich ohne Marketing-Sprache."
 >
-  <Hero 
+  <Hero
     label="Vergleich"
     title="KISS.Shop vs. andere Shopsysteme"
     subtitle="Ein sachlicher Vergleich. Ohne Marketing-Sprache, ohne Superlative."
   />
 
-  <section class="section">
-    <div class="container">
-      <nav class="breadcrumb">
-        <a href="/">Start</a>
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <!-- Breadcrumb -->
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+        <a href="/" class="hover:text-brand transition-colors">Start</a>
         <span>/</span>
-        Vergleich
+        <span class="text-gray-900">Vergleich</span>
       </nav>
 
-      <div class="comparison-intro">
-        <p>
-          KISS.Shop ist keine Konkurrenz zu etablierten Shopsystemen. 
-          Es ist eine Alternative für eine spezifische Zielgruppe: 
+      <div class="max-w-3xl mb-12">
+        <p class="text-gray-600 leading-relaxed mb-4">
+          KISS.Shop ist keine Konkurrenz zu etablierten Shopsystemen.
+          Es ist eine Alternative für eine spezifische Zielgruppe:
           Kleine Betriebe, die einen einfachen Shop wollen und sich nicht mit Technik beschäftigen möchten.
         </p>
-        <p>
+        <p class="text-gray-600 leading-relaxed">
           Die folgenden Vergleiche zeigen, wann KISS.Shop passt – und wann nicht.
         </p>
       </div>
 
-      <h2>Übersicht</h2>
-      <table class="comparison-table">
-        <thead>
-          <tr>
-            <th>Kriterium</th>
-            <th class="highlight">KISS.Shop</th>
-            <th>Shopify</th>
-            <th>WooCommerce</th>
-            <th>PrestaShop</th>
-            <th>Shopware</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Zielgruppe</td>
-            <td class="highlight">Kleine Betriebe</td>
-            <td>Alle Größen</td>
-            <td>Alle Größen</td>
-            <td>KMU</td>
-            <td>Mittelstand</td>
-          </tr>
-          <tr>
-            <td>Technisches Wissen nötig</td>
-            <td class="highlight yes">Nein</td>
-            <td>Wenig</td>
-            <td>Mittel</td>
-            <td>Mittel</td>
-            <td>Hoch</td>
-          </tr>
-          <tr>
-            <td>Selbst-Hosting</td>
-            <td class="highlight no">Nein (betreut)</td>
-            <td>Nein (SaaS)</td>
-            <td>Ja</td>
-            <td>Ja</td>
-            <td>Ja/Nein</td>
-          </tr>
-          <tr>
-            <td>Plugin-System</td>
-            <td class="highlight no">Nein</td>
-            <td>Ja</td>
-            <td>Ja</td>
-            <td>Ja</td>
-            <td>Ja</td>
-          </tr>
-          <tr>
-            <td>Persönliche Betreuung</td>
-            <td class="highlight yes">Inklusive</td>
-            <td>Kostenpflichtig</td>
-            <td>Agentur nötig</td>
-            <td>Agentur nötig</td>
-            <td>Agentur nötig</td>
-          </tr>
-          <tr>
-            <td>Komplexität</td>
-            <td class="highlight">Minimal</td>
-            <td>Mittel</td>
-            <td>Hoch</td>
-            <td>Hoch</td>
-            <td>Sehr hoch</td>
-          </tr>
-        </tbody>
-      </table>
+      <h2 class="font-mono text-2xl font-bold text-gray-900 mb-8">Übersicht</h2>
 
-      <h2 style="margin-top: var(--space-xl);">Detailvergleiche</h2>
-      <div class="grid grid--2">
-        <a href="/vergleich/shopify/" class="card">
-          <h3 class="card__title">KISS.Shop vs. Shopify</h3>
-          <p class="card__text">SaaS vs. betreute Lösung. Wann lohnt sich was?</p>
-        </a>
-        <a href="/vergleich/woocommerce/" class="card">
-          <h3 class="card__title">KISS.Shop vs. WooCommerce</h3>
-          <p class="card__text">WordPress-Plugin vs. eigenständiges System.</p>
-        </a>
-        <a href="/vergleich/prestashop/" class="card">
-          <h3 class="card__title">KISS.Shop vs. PrestaShop</h3>
-          <p class="card__text">Open Source vs. betreute Einfachheit.</p>
-        </a>
-        <a href="/vergleich/shopware/" class="card">
-          <h3 class="card__title">KISS.Shop vs. Shopware</h3>
-          <p class="card__text">Enterprise-Lösung vs. schlanke Alternative.</p>
-        </a>
+      <div class="overflow-x-auto rounded-lg border border-gray-200 shadow-sm mb-16">
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="bg-gray-50">
+              <th class="px-4 py-4 text-left font-mono font-semibold text-gray-900">Kriterium</th>
+              <th class="px-4 py-4 text-left font-mono font-semibold text-brand bg-brand-light/50">KISS.Shop</th>
+              <th class="px-4 py-4 text-left font-mono font-semibold text-gray-900">Shopify</th>
+              <th class="px-4 py-4 text-left font-mono font-semibold text-gray-900">WooCommerce</th>
+              <th class="px-4 py-4 text-left font-mono font-semibold text-gray-900">PrestaShop</th>
+              <th class="px-4 py-4 text-left font-mono font-semibold text-gray-900">Shopware</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-gray-200">
+            <tr class="bg-white">
+              <td class="px-4 py-4 font-medium text-gray-900">Zielgruppe</td>
+              <td class="px-4 py-4 bg-brand-light">Kleine Betriebe</td>
+              <td class="px-4 py-4">Alle Größen</td>
+              <td class="px-4 py-4">Alle Größen</td>
+              <td class="px-4 py-4">KMU</td>
+              <td class="px-4 py-4">Mittelstand</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="px-4 py-4 font-medium text-gray-900">Technisches Wissen</td>
+              <td class="px-4 py-4 bg-brand-light text-green-600 font-semibold">Nein</td>
+              <td class="px-4 py-4">Wenig</td>
+              <td class="px-4 py-4">Mittel</td>
+              <td class="px-4 py-4">Mittel</td>
+              <td class="px-4 py-4">Hoch</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-4 py-4 font-medium text-gray-900">Selbst-Hosting</td>
+              <td class="px-4 py-4 bg-brand-light">Nein (betreut)</td>
+              <td class="px-4 py-4">Nein (SaaS)</td>
+              <td class="px-4 py-4">Ja</td>
+              <td class="px-4 py-4">Ja</td>
+              <td class="px-4 py-4">Ja/Nein</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="px-4 py-4 font-medium text-gray-900">Plugin-System</td>
+              <td class="px-4 py-4 bg-brand-light text-gray-400">Nein</td>
+              <td class="px-4 py-4">Ja</td>
+              <td class="px-4 py-4">Ja</td>
+              <td class="px-4 py-4">Ja</td>
+              <td class="px-4 py-4">Ja</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="px-4 py-4 font-medium text-gray-900">Persönliche Betreuung</td>
+              <td class="px-4 py-4 bg-brand-light text-green-600 font-semibold">Inklusive</td>
+              <td class="px-4 py-4">Kostenpflichtig</td>
+              <td class="px-4 py-4">Agentur nötig</td>
+              <td class="px-4 py-4">Agentur nötig</td>
+              <td class="px-4 py-4">Agentur nötig</td>
+            </tr>
+            <tr class="bg-gray-50/50">
+              <td class="px-4 py-4 font-medium text-gray-900">Komplexität</td>
+              <td class="px-4 py-4 bg-brand-light text-green-600 font-semibold">Minimal</td>
+              <td class="px-4 py-4">Mittel</td>
+              <td class="px-4 py-4">Hoch</td>
+              <td class="px-4 py-4">Hoch</td>
+              <td class="px-4 py-4">Sehr hoch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="font-mono text-2xl font-bold text-gray-900 mb-8">Detailvergleiche</h2>
+
+      <div class="grid md:grid-cols-2 gap-6">
+        {comparisons.map((comparison) => (
+          <a href={comparison.href} class="group block p-6 bg-white border border-gray-200 rounded-lg hover:border-brand hover:shadow-lg transition-all">
+            <h3 class="font-mono font-semibold text-gray-900 group-hover:text-brand transition-colors mb-2">{comparison.title}</h3>
+            <p class="text-gray-600 text-sm">{comparison.text}</p>
+          </a>
+        ))}
       </div>
     </div>
   </section>
 
-  <CTA 
+  <CTA
     title="Noch Fragen?"
     text="Ich berate Sie gerne, welches System für Ihre Anforderungen passt."
     buttonText="Beratung anfragen"
     buttonHref="mailto:david@websystems.io?subject=Shopsystem-Beratung"
   />
 </Layout>
-
-<style>
-  .card {
-    text-decoration: none;
-    color: inherit;
-    display: block;
-  }
-  
-  .card:hover {
-    border-color: var(--color-accent);
-  }
-  
-  .card:hover .card__title {
-    color: var(--color-accent);
-  }
-</style>

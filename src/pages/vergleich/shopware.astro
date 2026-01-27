@@ -15,85 +15,140 @@ const comparisonRows = [
   { feature: "B2B-Suite", kiss: false, other: true },
   { feature: "Performance", kiss: "Schnell", other: "Ressourcenintensiv" },
 ];
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Start", "item": "https://kiss.websystems.io/" },
+    { "@type": "ListItem", "position": 2, "name": "Vergleich", "item": "https://kiss.websystems.io/vergleich/" },
+    { "@type": "ListItem", "position": 3, "name": "Shopware" }
+  ]
+};
 ---
 
-<Layout 
+<Layout
   title="KISS.Shop vs. Shopware – Ehrlicher Vergleich"
   description="Shopware ist für den Mittelstand gemacht. Für kleine Shops ist es überdimensioniert. KISS.Shop als Alternative."
 >
-  <Hero 
+  <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} slot="structured-data" />
+
+  <Hero
     label="Vergleich"
     title="KISS.Shop vs. Shopware"
     subtitle="Enterprise-System vs. schlanke Lösung."
   />
 
-  <section class="section">
-    <div class="container">
-      <nav class="breadcrumb">
-        <a href="/">Start</a>
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <nav class="flex items-center gap-2 text-sm text-gray-500 mb-8">
+        <a href="/" class="hover:text-brand transition-colors">Start</a>
         <span>/</span>
-        <a href="/vergleich/">Vergleich</a>
+        <a href="/vergleich/" class="hover:text-brand transition-colors">Vergleich</a>
         <span>/</span>
-        Shopware
+        <span class="text-gray-900">Shopware</span>
       </nav>
 
-      <div class="content prose">
-        <h2>Shopware im Überblick</h2>
-        <p>
-          Shopware ist ein deutsches E-Commerce-System, das sich an mittelständische und größere Unternehmen richtet. 
+      <div class="max-w-3xl">
+        <h2 class="font-mono text-xl font-bold text-gray-900 mb-4">Shopware im Überblick</h2>
+        <p class="text-gray-600 leading-relaxed mb-8">
+          Shopware ist ein deutsches E-Commerce-System, das sich an mittelständische und größere Unternehmen richtet.
           Bekannt für umfangreiche B2B-Funktionen, Content-Management und ERP-Integrationen.
         </p>
 
-        <h3>Wann Shopware passt</h3>
-        <ul>
-          <li>Sie haben 500+ Produkte</li>
-          <li>Sie brauchen komplexe B2B-Funktionen</li>
-          <li>Sie planen ERP-Integration (SAP, etc.)</li>
-          <li>Sie haben Budget für Agentur und Entwicklung</li>
-        </ul>
-
-        <h3>Wann KISS.Shop passt</h3>
-        <ul>
-          <li>Sie haben unter 500 Produkte</li>
-          <li>Sie brauchen keine Enterprise-Features</li>
-          <li>Sie haben kein Budget für Agenturen</li>
-          <li>Sie wollen schnell starten</li>
-        </ul>
+        <div class="grid md:grid-cols-2 gap-8 mb-12">
+          <div>
+            <h3 class="font-mono font-semibold text-gray-900 mb-4">Wann Shopware passt</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">→</span>
+                <span class="text-gray-600">Sie haben 500+ Produkte</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">→</span>
+                <span class="text-gray-600">Sie brauchen komplexe B2B-Funktionen</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">→</span>
+                <span class="text-gray-600">Sie planen ERP-Integration (SAP, etc.)</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-gray-400 mt-1">→</span>
+                <span class="text-gray-600">Sie haben Budget für Agentur und Entwicklung</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="font-mono font-semibold text-gray-900 mb-4">Wann KISS.Shop passt</h3>
+            <ul class="space-y-2">
+              <li class="flex items-start gap-3">
+                <span class="text-brand mt-1">→</span>
+                <span class="text-gray-600">Sie haben unter 500 Produkte</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand mt-1">→</span>
+                <span class="text-gray-600">Sie brauchen keine Enterprise-Features</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand mt-1">→</span>
+                <span class="text-gray-600">Sie haben kein Budget für Agenturen</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <span class="text-brand mt-1">→</span>
+                <span class="text-gray-600">Sie wollen schnell starten</span>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
 
-      <h2 style="margin-top: var(--space-xl);">Direktvergleich</h2>
-      <ComparisonTable otherName="Shopware" rows={comparisonRows} />
+      <h2 class="font-mono text-xl font-bold text-gray-900 mb-6">Direktvergleich</h2>
+      <div class="mb-12">
+        <ComparisonTable otherName="Shopware" rows={comparisonRows} />
+      </div>
 
-      <div class="content prose" style="margin-top: var(--space-xl);">
-        <h2>Der Elefant im Raum: Kosten</h2>
-        <p>
-          Shopware 6 gibt es als Community Edition kostenlos. 
+      <div class="max-w-3xl">
+        <h2 class="font-mono text-xl font-bold text-gray-900 mb-4">Der Elefant im Raum: Kosten</h2>
+        <p class="text-gray-600 leading-relaxed mb-4">
+          Shopware 6 gibt es als Community Edition kostenlos.
           Ein produktiver Shop braucht aber meist die kostenpflichtige Version oder zahlreiche Plugins.
         </p>
-        <p>
+        <p class="text-gray-600 leading-relaxed mb-4">
           Realistische Kosten für einen mittelgroßen Shopware-Shop:
         </p>
-        <ul>
-          <li>Einrichtung durch Agentur: 10.000–30.000€</li>
-          <li>Theme-Anpassung: 3.000–10.000€</li>
-          <li>Monatliche Wartung: 500–2.000€</li>
-          <li>Hosting (performant): 100–500€/Monat</li>
+        <ul class="space-y-2 mb-6">
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">—</span>
+            <span class="text-gray-600">Einrichtung durch Agentur: 10.000–30.000€</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">—</span>
+            <span class="text-gray-600">Theme-Anpassung: 3.000–10.000€</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">—</span>
+            <span class="text-gray-600">Monatliche Wartung: 500–2.000€</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <span class="text-gray-400 mt-1">—</span>
+            <span class="text-gray-600">Hosting (performant): 100–500€/Monat</span>
+          </li>
         </ul>
-        <p>
+        <p class="text-gray-600 leading-relaxed mb-8">
           Für einen Shop mit 50 Produkten ist das unverhältnismäßig.
         </p>
 
-        <h2>Fazit</h2>
-        <p>
-          Shopware ist eine exzellente Wahl für Unternehmen, die in E-Commerce investieren wollen und können. 
-          Für kleine Betriebe ist es schlicht zu viel – zu komplex, zu teuer, zu aufwändig. 
+        <h2 class="font-mono text-xl font-bold text-gray-900 mb-4">Fazit</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Shopware ist eine exzellente Wahl für Unternehmen, die in E-Commerce investieren wollen und können.
+          Für kleine Betriebe ist es schlicht zu viel – zu komplex, zu teuer, zu aufwändig.
           KISS.Shop bietet das, was kleine Shops wirklich brauchen.
         </p>
       </div>
     </div>
   </section>
 
-  <CTA 
+  <CTA
     title="Klein starten, groß denken?"
     text="Fangen Sie einfach an. Mit KISS.Shop."
     buttonText="Anfrage senden"
