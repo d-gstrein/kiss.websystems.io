@@ -6,6 +6,10 @@ import CTA from '../components/CTA.astro';
 
 const faqItems = [
   {
+    question: "Wofür steht KISS?",
+    answer: "KISS steht für 'Keep It Simple' – halte es einfach. Unser Prinzip: Nur die Funktionen, die Sie wirklich brauchen. Kein Feature-Overload, keine Komplexität."
+  },
+  {
     question: "Für wen ist KISS.Shop geeignet?",
     answer: "Für kleine Betriebe mit 10–500 Produkten, die einen einfachen, funktionierenden Onlineshop wollen. Ohne technische Vorkenntnisse. Ohne Plugin-Chaos."
   },
@@ -34,7 +38,7 @@ const softwareSchema = {
   "name": "KISS.Shop",
   "applicationCategory": "BusinessApplication",
   "operatingSystem": "Web",
-  "description": "Einfache, betreute Shopsoftware für kleine Betriebe. Klarer Funktionsumfang, keine Plugins, kein Ballast.",
+  "description": "KISS.Shop – Keep It Simple Shop. Betreute Shopsoftware für kleine Betriebe mit persönlicher Einrichtung und Support.",
   "offers": {
     "@type": "Offer",
     "priceCurrency": "EUR",
@@ -106,32 +110,57 @@ const packages = [
 ---
 
 <Layout
-  title="KISS.Shop – Der einfache, betreute Onlineshop"
-  description="KISS.Shop ist eine einfache, betreute Shopsoftware für kleine Betriebe. Klarer Funktionsumfang, keine Plugins, kein Ballast."
+  title="KISS.Shop – Keep It Simple Shop"
+  description="KISS.Shop – Keep It Simple Shop. Die betreute Shopsoftware für kleine Betriebe. Persönliche Einrichtung, faire Preise, ein Ansprechpartner."
 >
   <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} slot="structured-data" />
 
   <Hero
-    label="Shopsoftware"
-    title="Ein Onlineshop, der funktioniert. Ohne Ballast."
-    subtitle="KISS.Shop ist eine einfache, betreute Shopsoftware für kleine Betriebe. Klarer Funktionsumfang. Persönliche Betreuung. Keine versteckten Kosten."
+    label="Keep It Simple"
+    title="Keep It Simple. Sell."
+    subtitle="KISS.Shop ist die betreute Shopsoftware für kleine Betriebe. Klarer Funktionsumfang. Ein Ansprechpartner. Faire Preise."
     showCTA={true}
   />
+
+  <!-- Das KISS-Prinzip -->
+  <section class="py-12 md:py-16 bg-brand-light">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <h2 class="font-mono text-2xl md:text-3xl font-bold text-gray-900 mb-4">Das KISS-Prinzip</h2>
+        <p class="text-gray-700 leading-relaxed text-lg">
+          KISS steht für <strong>„Keep It Simple"</strong> – halte es einfach.
+          Während andere Shopsysteme mit Hunderten Funktionen und Plugins werben,
+          konzentrieren wir uns auf das Wesentliche: <strong>Ein Shop, der verkauft.</strong>
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- Warum KISS.Shop -->
   <section class="py-16 md:py-20 bg-white" id="warum">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="max-w-3xl">
-        <h2 class="font-mono text-2xl md:text-3xl font-bold text-gray-900 mb-6">Warum KISS.Shop</h2>
+        <h2 class="font-mono text-2xl md:text-3xl font-bold text-gray-900 mb-6">Warum KISS.Shop?</h2>
         <div class="space-y-4 text-gray-600 leading-relaxed">
           <p>
-            Die meisten Shopsysteme sind für Ihr Geschäft überdimensioniert.
-            Sie zahlen für Funktionen, die Sie nicht brauchen. Sie kämpfen mit Updates, Plugins und Sicherheitslücken.
+            Die meisten Shopsysteme sind für kleine Betriebe überdimensioniert.
+            Sie zahlen für Features, die Sie nie nutzen. Sie kämpfen mit Updates und Plugin-Konflikten.
           </p>
-          <p>
-            KISS.Shop macht es anders: Ein System, das genau das kann, was ein kleiner Onlineshop braucht.
-            Nicht mehr, nicht weniger. Ich kümmere mich um Technik, Hosting und Wartung – Sie konzentrieren sich auf Ihr Geschäft.
-          </p>
+          <p class="font-semibold text-gray-900">KISS.Shop macht es anders:</p>
+          <ul class="space-y-2 ml-4">
+            <li class="flex items-start gap-3">
+              <span class="text-brand mt-1">—</span>
+              <span>Ein System, das genau das kann, was ein kleiner Shop braucht</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand mt-1">—</span>
+              <span>Keine Plugins, keine Sicherheitslücken, keine Kompatibilitätsprobleme</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <span class="text-brand mt-1">—</span>
+              <span>Ich kümmere mich um Technik und Wartung – Sie verkaufen</span>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
