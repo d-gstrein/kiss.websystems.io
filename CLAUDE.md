@@ -39,6 +39,9 @@ Fonts: IBM Plex Sans (body) and IBM Plex Mono (headings) via Google Fonts.
 - Automatic sitemap via `@astrojs/sitemap`
 - Legal pages (impressum, datenschutz) have `noindex={true}`
 
+### Analytics
+Matomo tracking is integrated in `Layout.astro` (stat.websystems.io, site ID 25).
+
 ### Deployment
-Auto-deploys to GitHub Pages on push to `main` via `.github/workflows/deploy.yml`.
+Auto-deploys to GitHub Pages on push to `master` via `.github/workflows/deploy.yml`.
 Site URL: https://kiss.websystems.io
