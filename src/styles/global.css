@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Custom theme using Tailwind v4 CSS-first approach */
+@theme inline {
+  /* Brand Colors */
+  --color-brand: #d45500;
+  --color-brand-light: #fff3eb;
+  --color-brand-dark: #b34700;
+
+  /* Fonts - IBM Plex family */
+  --font-sans: 'IBM Plex Sans', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, monospace;
+}
+
+/* Base styles */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans text-gray-900 bg-gray-50 antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-mono font-bold tracking-tight;
+  }
+
+  /* Remove default summary marker */
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+
+  details summary {
+    list-style: none;
+  }
+}
+
+/* Print styles */
+@media print {
+  header, footer, .cta-section {
+    display: none !important;
+  }
+
+  section {
+    border: none !important;
+    page-break-inside: avoid;
+  }
+}
