@@ -14,36 +14,37 @@ const { otherName, rows } = Astro.props;
 
 function formatValue(value: string | boolean): string {
   if (typeof value === 'boolean') {
-    return value ? '✓' : '–';
+    return value ? '✓' : '—';
   }
   return value;
 }
 
-function getClass(value: string | boolean): string {
+function getValueClasses(value: string | boolean, isKiss: boolean): string {
+  const base = isKiss ? 'bg-brand-light' : '';
   if (typeof value === 'boolean') {
-    return value ? 'yes' : 'no';
+    return `${base} ${value ? 'text-green-600 font-semibold' : 'text-gray-400'}`;
   }
-  return '';
+  return base;
 }
 ---
 
-<div class="comparison-table-wrapper">
-  <table class="comparison-table">
+<div class="overflow-x-auto rounded-lg border border-gray-200 shadow-sm">
+  <table class="w-full text-sm">
     <thead>
-      <tr>
-        <th>Merkmal</th>
-        <th class="highlight">KISS.Shop</th>
-        <th>{otherName}</th>
+      <tr class="bg-gray-50">
+        <th class="px-4 md:px-6 py-4 text-left font-mono font-semibold text-gray-900">Merkmal</th>
+        <th class="px-4 md:px-6 py-4 text-left font-mono font-semibold text-brand bg-brand-light/50">KISS.Shop</th>
+        <th class="px-4 md:px-6 py-4 text-left font-mono font-semibold text-gray-900">{otherName}</th>
       </tr>
     </thead>
-    <tbody>
-      {rows.map((row) => (
-        <tr>
-          <td>{row.feature}</td>
-          <td class:list={['highlight', getClass(row.kiss)]}>
+    <tbody class="divide-y divide-gray-200">
+      {rows.map((row, index) => (
+        <tr class={index % 2 === 0 ? 'bg-white' : 'bg-gray-50/50'}>
+          <td class="px-4 md:px-6 py-4 font-medium text-gray-900">{row.feature}</td>
+          <td class={`px-4 md:px-6 py-4 ${getValueClasses(row.kiss, true)}`}>
             {formatValue(row.kiss)}
           </td>
-          <td class={getClass(row.other)}>
+          <td class={`px-4 md:px-6 py-4 ${getValueClasses(row.other, false)}`}>
             {formatValue(row.other)}
           </td>
         </tr>

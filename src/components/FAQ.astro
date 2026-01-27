@@ -6,16 +6,42 @@ interface FAQItem {
 
 interface Props {
   items: FAQItem[];
+  generateSchema?: boolean;
 }
 
-const { items } = Astro.props;
+const { items, generateSchema = true } = Astro.props;
+
+// Generate FAQ Schema for SEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": items.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+};
 ---
 
-<div class="faq">
-  {items.map((item) => (
-    <div class="faq__item">
-      <h3 class="faq__question">{item.question}</h3>
-      <p class="faq__answer">{item.answer}</p>
-    </div>
+{generateSchema && (
+  <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+)}
+
+<div class="divide-y divide-gray-200 border-y border-gray-200">
+  {items.map((item, index) => (
+    <details class="group py-6" open={index === 0}>
+      <summary class="flex items-center justify-between cursor-pointer">
+        <h3 class="font-mono font-semibold text-gray-900 pr-4">{item.question}</h3>
+        <span class="flex-shrink-0 ml-4">
+          <svg class="w-5 h-5 text-gray-500 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+          </svg>
+        </span>
+      </summary>
+      <p class="mt-4 text-gray-600 leading-relaxed">{item.answer}</p>
+    </details>
   ))}
 </div>
