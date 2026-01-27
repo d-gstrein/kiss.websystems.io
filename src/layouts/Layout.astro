@@ -1,17 +1,40 @@
 ---
-import '../styles/main.css';
+import '../styles/global.css';
 
 interface Props {
   title: string;
   description: string;
   canonical?: string;
   noindex?: boolean;
+  ogImage?: string;
 }
 
-const { title, description, canonical, noindex = false } = Astro.props;
+const { title, description, canonical, noindex = false, ogImage } = Astro.props;
 const siteUrl = 'https://kiss.websystems.io';
 const currentPath = Astro.url.pathname;
 const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
+const ogImageUrl = ogImage || `${siteUrl}/og-image.png`;
+
+// Organization Schema
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "KISS.Shop",
+  "url": siteUrl,
+  "logo": `${siteUrl}/favicon.svg`,
+  "description": "Einfache, betreute Shopsoftware für kleine Betriebe",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "email": "david@websystems.io",
+    "contactType": "customer service",
+    "availableLanguage": "German"
+  },
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "websystems.io",
+    "url": "https://websystems.io"
+  }
+};
 ---
 
 <!DOCTYPE html>
@@ -23,66 +46,127 @@ const canonicalUrl = canonical || `${siteUrl}${currentPath}`;
   <meta name="description" content={description}>
   <link rel="canonical" href={canonicalUrl}>
   {noindex && <meta name="robots" content="noindex, nofollow">}
-  
+
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-  
-  <!-- Styles werden via import im Frontmatter geladen -->
-  
+
   <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="/favicon.svg">
-  
+
   <!-- Open Graph -->
   <meta property="og:title" content={title}>
   <meta property="og:description" content={description}>
   <meta property="og:url" content={canonicalUrl}>
   <meta property="og:type" content="website">
   <meta property="og:locale" content="de_DE">
+  <meta property="og:site_name" content="KISS.Shop">
+  <meta property="og:image" content={ogImageUrl}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content={title}>
+  <meta name="twitter:description" content={description}>
+  <meta name="twitter:image" content={ogImageUrl}>
+
+  <!-- Organization Schema -->
+  <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+
+  <!-- Page-specific structured data -->
+  <slot name="structured-data" />
 </head>
-<body>
-  <header class="header">
-    <div class="container header__inner">
-      <a href="/" class="header__logo">KISS.Shop</a>
-      <nav class="nav">
-        <a href="/#vorteile">Vorteile</a>
-        <a href="/#pakete">Pakete</a>
-        <a href="/vergleich/">Vergleich</a>
-        <a href="/#kontakt">Kontakt</a>
+<body class="min-h-screen flex flex-col">
+  <header class="sticky top-0 z-50 bg-white border-b-2 border-gray-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4">
+      <div class="flex items-center justify-between">
+        <a href="/" class="font-mono text-xl font-bold text-gray-900 hover:text-brand transition-colors">
+          KISS.Shop
+        </a>
+        <nav class="hidden md:flex items-center gap-6">
+          <a href="/#vorteile" class="font-mono text-sm text-gray-700 hover:text-brand transition-colors">Vorteile</a>
+          <a href="/#pakete" class="font-mono text-sm text-gray-700 hover:text-brand transition-colors">Pakete</a>
+          <a href="/vergleich/" class="font-mono text-sm text-gray-700 hover:text-brand transition-colors">Vergleich</a>
+          <a href="/#kontakt" class="inline-flex items-center px-4 py-2 bg-gray-900 text-white font-mono text-sm font-semibold hover:bg-brand transition-colors">
+            Kontakt
+          </a>
+        </nav>
+        <!-- Mobile menu button -->
+        <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Menu">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+          </svg>
+        </button>
+      </div>
+      <!-- Mobile menu -->
+      <nav id="mobile-menu" class="hidden md:hidden pt-4 pb-2 border-t border-gray-200 mt-4">
+        <div class="flex flex-col gap-4">
+          <a href="/#vorteile" class="font-mono text-sm text-gray-700 hover:text-brand transition-colors">Vorteile</a>
+          <a href="/#pakete" class="font-mono text-sm text-gray-700 hover:text-brand transition-colors">Pakete</a>
+          <a href="/vergleich/" class="font-mono text-sm text-gray-700 hover:text-brand transition-colors">Vergleich</a>
+          <a href="/#kontakt" class="inline-flex items-center justify-center px-4 py-2 bg-gray-900 text-white font-mono text-sm font-semibold hover:bg-brand transition-colors">
+            Kontakt
+          </a>
+        </div>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main class="flex-1">
     <slot />
   </main>
 
-  <footer class="footer">
-    <div class="container footer__inner">
-      <div class="footer__text">
-        <p><strong>KISS.Shop</strong> – Einfache Shopsoftware für kleine Betriebe</p>
-        <p>Ein Produkt von <a href="https://websystems.io" target="_blank" rel="noopener">websystems.io</a></p>
+  <footer class="bg-gray-900 text-white mt-auto">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-12">
+      <div class="grid md:grid-cols-3 gap-8">
+        <div>
+          <h3 class="font-mono font-bold text-lg mb-4">KISS.Shop</h3>
+          <p class="text-gray-400 text-sm">Einfache Shopsoftware für kleine Betriebe</p>
+        </div>
+        <div>
+          <h4 class="font-mono font-semibold mb-4">Links</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="/#vorteile" class="hover:text-white transition-colors">Vorteile</a></li>
+            <li><a href="/#pakete" class="hover:text-white transition-colors">Pakete</a></li>
+            <li><a href="/vergleich/" class="hover:text-white transition-colors">Vergleich</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-mono font-semibold mb-4">Rechtliches</h4>
+          <ul class="space-y-2 text-sm text-gray-400">
+            <li><a href="/impressum/" class="hover:text-white transition-colors">Impressum</a></li>
+            <li><a href="/datenschutz/" class="hover:text-white transition-colors">Datenschutz</a></li>
+          </ul>
+        </div>
       </div>
-      <div class="footer__links">
-        <a href="/impressum/">Impressum</a>
-        <a href="/datenschutz/">Datenschutz</a>
+      <div class="border-t border-gray-800 mt-8 pt-8 text-center text-sm text-gray-500">
+        Ein Produkt von <a href="https://websystems.io" target="_blank" rel="noopener" class="text-brand hover:underline">websystems.io</a>
       </div>
     </div>
   </footer>
 
-<script>
-  var _paq = window._paq = window._paq || [];
-  /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-  _paq.push(['trackPageView']);
-  _paq.push(['enableLinkTracking']);
-  (function() {
-    var u="//stat.websystems.io/";
-    _paq.push(['setTrackerUrl', u+'matomo.php']);
-    _paq.push(['setSiteId', '25']);
-    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
-    g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
-  })();
-</script>
+  <script>
+    const btn = document.getElementById('mobile-menu-btn');
+    const menu = document.getElementById('mobile-menu');
+    btn?.addEventListener('click', () => {
+      menu?.classList.toggle('hidden');
+    });
+  </script>
+
+  <!-- Matomo -->
+  <script>
+    var _paq = window._paq = window._paq || [];
+    _paq.push(['trackPageView']);
+    _paq.push(['enableLinkTracking']);
+    (function() {
+      var u="//stat.websystems.io/";
+      _paq.push(['setTrackerUrl', u+'matomo.php']);
+      _paq.push(['setSiteId', '25']);
+      var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+      g.async=true; g.src=u+'matomo.js'; s.parentNode.insertBefore(g,s);
+    })();
+  </script>
 </body>
 </html>
