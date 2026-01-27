@@ -7,21 +7,23 @@ import Layout from "../layouts/Layout.astro";
   description="Impressum und Anbieterkennzeichnung für KISS.Shop"
   noindex={true}
 >
-  <section class="section">
-    <div class="container content">
-      <h1>Impressum</h1>
+  <section class="py-16 md:py-20">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="max-w-3xl">
+        <h1 class="font-mono text-3xl font-bold text-gray-900 mb-8">Impressum</h1>
 
-      <p>
-        David Gstrein<br />
-        Peter Mitterhofer Straße 4<br />
-        39020 Partschins<br />
-        Italien
-      </p>
+        <p class="text-gray-600 mb-8">
+          David Gstrein<br>
+          Peter Mitterhofer Straße 4<br>
+          39020 Partschins<br>
+          Italien
+        </p>
 
-      <h2>Kontakt</h2>
-      <p>
-        E-Mail: <a href="mailto:david@websystems.io">david@websystems.io</a>
-      </p>
+        <h2 class="font-mono text-xl font-bold text-gray-900 mb-4">Kontakt</h2>
+        <p class="text-gray-600 mb-8">
+          E-Mail: <a href="mailto:david@websystems.io" class="text-brand hover:underline">david@websystems.io</a>
+        </p>
+      </div>
     </div>
   </section>
 </Layout>
