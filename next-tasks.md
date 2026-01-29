@@ -1,14 +1,14 @@
 # Anpassungen
 
-[ ] Die Aussagen "betreute Shopsoftware" und "für kleine Betriebe." entfernen. Die Software braucht keine Betreuung. Das System ist intuitiv bedienbar: man arbeitet sofort produktiv, ohne Schulungsaufwand. "Für kleine Betriebe" macht den Eindruck, dass hier etwas minderwertiges verkauft wird. "Limitiertes Angebot" oder "Exklusives Sortiment", über das Wording bin ich mir nicht sicher, es sollte aber schön umschrieben sein.
+[x] Die Aussagen "betreute Shopsoftware" und "für kleine Betriebe." entfernen. Die Software braucht keine Betreuung. Das System ist intuitiv bedienbar: man arbeitet sofort produktiv, ohne Schulungsaufwand. "Für kleine Betriebe" macht den Eindruck, dass hier etwas minderwertiges verkauft wird. "Limitiertes Angebot" oder "Exklusives Sortiment", über das Wording bin ich mir nicht sicher, es sollte aber schön umschrieben sein.
 
 -----------
 
-[ ] Es kommt zu oft "Keep It Simple" vor. Mir ist SEO wichtig, sollten 1-2 unterschiedliche Begriffe verwendet werden. Beispiel statt <span class="inline-flex items-center px-3 py-1 mb-6 text-xs font-mono font-semibold uppercase tracking-wider text-brand bg-brand-light rounded-full"> Keep It Simple </span> sollte hier "E-Commerce Software" stehen. 
+[x] Es kommt zu oft "Keep It Simple" vor. Mir ist SEO wichtig, sollten 1-2 unterschiedliche Begriffe verwendet werden. Beispiel statt <span class="inline-flex items-center px-3 py-1 mb-6 text-xs font-mono font-semibold uppercase tracking-wider text-brand bg-brand-light rounded-full"> Keep It Simple </span> sollte hier "E-Commerce Software" stehen. 
 
 -----------
 
-[ ] Der User sollte sofort verstehen worum es auf jeder Seite geht, Stichwort "Squint Test". 
+[x] Der User sollte sofort verstehen worum es auf jeder Seite geht, Stichwort "Squint Test". 
 
 -----------
 
