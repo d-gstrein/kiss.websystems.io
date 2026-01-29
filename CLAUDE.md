@@ -2,6 +2,35 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## Content Guidelines
+
+### Tonalität
+- **"wir" statt "ich"** - Professioneller Ton, keine Ein-Mann-Schülerprojekt-Vibes
+- Automatisierte Systeme betonen (24/7-Monitoring, KI-gestützte Wartung)
+- Nicht: "Ich kümmere mich", "Ich berate Sie"
+
+### Zielgruppe
+- **Nicht nur kleine Betriebe** - Produkt ist für alle interessant, die Einfachheit wollen
+- Begriff verwenden: "fokussierte Sortimente" statt "kleine Betriebe"
+- Unternehmensgröße ist kein Kriterium
+
+### Verbotene Begriffe
+- ~~"betreute Shopsoftware"~~ → "intuitive E-Commerce-Software"
+- ~~"für kleine Betriebe"~~ → "für fokussierte Sortimente"
+- ~~"kein Ticket-System"~~ → Support läuft über Ticket-System
+
+### Preismodell
+- **Einmalige Lizenzgebühr** + jährliches Hosting (inkl. Updates)
+- Kein Abo-Modell - das ist ein USP gegenüber Shopify etc.
+- Kein Telefon-Support
+
+### Pakete
+| Paket | Produkte | Features |
+|-------|----------|----------|
+| Starter | bis 10 | SEO-Grundfunktionen, E-Mail-Support |
+| Standard | bis 50 | + Varianten, Theme-Anpassungen |
+| Premium | bis 500 | + Individuelle Anpassungen, Datenimport |
+
 ## Build Commands
 
 ```bash
